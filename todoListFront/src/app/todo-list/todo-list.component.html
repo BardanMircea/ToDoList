@@ -3,7 +3,6 @@
   <p>No current tasks</p>
 </div>
 <div *ngFor="let task of tasks">
-  <span>{{ task.id }}</span>
   <span>{{ task.name }}</span>
   <button (click)="onTaskFinished(task)">Done</button>
 </div>
