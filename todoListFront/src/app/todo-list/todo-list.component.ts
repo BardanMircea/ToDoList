@@ -27,15 +27,15 @@ export class TodoListComponent {
     this.todoListService
       .saveTask(new Task(this.newTaskName))
       .subscribe((response) => {
+        window.location.reload();
         console.log('success', response);
       });
-    window.location.reload();
   }
 
   onTaskFinished(task: Task): void {
     this.todoListService.deleteTask(task).subscribe((response) => {
+      window.location.reload();
       console.log('success', response);
     });
-    window.location.reload();
   }
 }
