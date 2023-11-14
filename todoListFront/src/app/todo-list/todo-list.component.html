@@ -1,0 +1,18 @@
+<h1>To Do List:</h1>
+<div *ngIf="tasks.length === 0">
+  <p>No current tasks</p>
+</div>
+<div *ngFor="let task of tasks">
+  <span>{{ task.id }}</span>
+  <span>{{ task.name }}</span>
+  <button (click)="onTaskFinished(task)">Done</button>
+</div>
+
+<button *ngIf="!showForm" (click)="onShowFormButtonClick()">
+  Add New Task
+</button>
+<div *ngIf="showForm">
+  <label for="new-task">Task Name:</label>
+  <input type="text" [(ngModel)]="newTaskName" />
+  <button (click)="onAddTaskButtonClick()">Submit</button>
+</div>
