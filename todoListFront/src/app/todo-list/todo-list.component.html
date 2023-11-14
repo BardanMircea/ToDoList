@@ -2,10 +2,12 @@
 <div *ngIf="tasks.length === 0">
   <p>No current tasks</p>
 </div>
-<div *ngFor="let task of tasks">
-  <span>{{ task.name }}</span>
-  <button (click)="onTaskFinished(task)">Done</button>
-</div>
+<ul>
+  <li *ngFor="let task of tasks">
+    <span>{{ task.name }}</span>
+    <button (click)="onTaskFinished(task)">Done</button>
+  </li>
+</ul>
 
 <button *ngIf="!showForm" (click)="onShowFormButtonClick()">
   Add New Task
