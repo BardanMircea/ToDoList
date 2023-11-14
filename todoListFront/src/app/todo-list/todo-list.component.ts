@@ -8,10 +8,9 @@ import { Task } from '../model/Task';
   styleUrls: ['./todo-list.component.css'],
 })
 export class TodoListComponent {
-  tasks: Task[] = [new Task('Placeholder Task')];
+  tasks: Task[] = [];
   showForm: boolean = false;
   newTaskName?: string;
-  newTask?: Task;
 
   constructor(private todoListService: TodoListService) {}
 
@@ -25,10 +24,11 @@ export class TodoListComponent {
 
   onAddTaskButtonClick(): void {
     this.showForm = false;
-    this.newTask = new Task(this.newTaskName);
-    this.todoListService.saveTask(this.newTask).subscribe((response) => {
-      console.log('success', response);
-    });
+    this.todoListService
+      .saveTask(new Task(this.newTaskName))
+      .subscribe((response) => {
+        console.log('success', response);
+      });
   }
 
   onTaskFinished(task: Task): void {
