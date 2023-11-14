@@ -29,11 +29,13 @@ export class TodoListComponent {
       .subscribe((response) => {
         console.log('success', response);
       });
+    window.location.reload();
   }
 
   onTaskFinished(task: Task): void {
     this.todoListService.deleteTask(task).subscribe((response) => {
       console.log('success', response);
     });
+    window.location.reload();
   }
 }
